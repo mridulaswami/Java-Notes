@@ -1,0 +1,50 @@
+basic code structure of enterprise-level applications.
+
+1. the layer in which everything works on backend is-
+controller -> service -> Domain/Business -> Repository -> DB
+
+a. controller - how would outer world will connect to my application ? 
+- gives HTTP/API boundary 
+- calls services
+- return response 
+like a receptionist.
+
+b. service - what actions can my system perform ?
+- co-ordinates multiple steps
+-calls domain logic
+- call repositories/ transactions 
+- it has use-cases and plans of logic
+ like a manager - who knows the process , decides the order of actions and delegates work.
+
+c. Domain - core business rules, domain models.
+like a law book.
+
+d. repository - how to store and retrieve the data 
+- does CRUD operations
+- queries/mapping 
+like a warehouse clerks who fetch the data / store it but doesn't decide why
+
+e. DB- where the data is actually/physically stored?
+- stores the data 
+- ensures durability 
+- handle indexes 
+like a vault.
+
+2. we always use src as top-level source directory and every folder is derived from it only. 
+ex- src/main/java - this is the basic path that comes from MAVEN/GRADLE conventions not from spring .
+
+a. src/main/java - real code 
+b. src/main/resources- main application configs /yaml files / properties
+c. src/test/java - all test cases/units
+d. src/test/config - all test configs
+
+now the name of packages is actually folder path visually 
+ex- 
+
+package com.example.enterprise.service.impl;
+
+⇅
+
+src/main/java/com/example/enterprise/service/impl
+
+never try to make these folders manually , just create packages and let the IDE manage folders.
