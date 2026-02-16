@@ -1,0 +1,41 @@
+//STREAMS
+
+
+1. we can make arraylist without forming a constructor using asList() function.
+           List<Integer> list = Arrays.asList(12,13,758,98,344,12,2);
+
+2. For converting into stream() - sequence of values , we simply use stream() keyword 
+
+a. on which I can use filter() keyword to use if condition on the given input values 
+    eg- list.stream().filter(x -> x % 2 == 0)  //on filter we use if - condition 
+ but we need to store the same stream in list only , then we use collector to collect the stream output and put it in a list using collect() keyword 
+    eg-   List<Integer> filteredList = list.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+
+b. now if I want to tranform list elements into something else , then I use map() keyword.
+   eg-      List<Integer> transformedList = list.stream().map(x -> x%2).collect(Collectors.toList());
+
+c. now here we can use many unctions like distinct(), sorted(), limit()
+   eg-   List<Integer> transformedList = list.stream().map(x -> x/2).distinct().sorted().collect(Collectors.toList());
+  note that - for sorted , the default value is ascending only, what if we want in descending order? we can use comparator function defined under sorted only, 
+              (a,b)->(a-b) is default means ascending but (a,b)->(b-a) means descending.
+   eg-         List<Integer> desclist = list.stream().map(x -> x/2).distinct()
+               .sorted((a,b)->(b-a)).collect(Collectors.toList());
+
+d. Now , most important is iterator() in streams , using which we can iterate like a loop , by giving a startig point known as seed in java.
+   eg-         List<Integer> coll= Stream.iterate(1, f -> f+1).limit(100).collect(Collectors.toList());   // here I am getting values from 1 to 100 using iterator.
+
+e. we can also do operation in middle of stream statement using peek() function. 
+  eg-         List<Integer> peekuse = list.stream().filter(x -> x % 2 == 0).peek(x -> System.out.println(x)).sorted().collect(Collectors.toList());
+                   // this code will give me values of x , before sorting , I can use it anywhere for debugging 
+
+f. usage of min,max - these are also comparators like sorted function, which use ((a,b) -> (a-b)) for max value and ((a,b) -> (b-a)) for min value.
+
+3. for big lists , we should use parallestream() instead of stream() to run thread parallely.
+  eg- list.parallelstream();
+   we can use all operations as streams on parallelstreams as well.
+
+
+
+
+
+
