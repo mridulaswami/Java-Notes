@@ -1,0 +1,14 @@
+1. use to get ordered elements as they insert.
+2. index- based access is done.
+3. can contain duplicates.
+4. arraylist doesn't define size like arrays, it stores data and keep expanding the size of the list dynamically.
+5. methods- add(), remove(), get(), size() , contains()
+
+6. we make arraylist using - 
+Arraylist<Integer> list1= new Arraylist<>();
+List<Integer> list2= new Arraylist<>();  - we can make that as list is parent class of arraylist only.
+
+7. we can also make list using asList() - but note that it is only created using List and it cannot add or remove elements as it creates a definite length list. we can 
+only update the elements using set() method.
+List<Integer>list3 = Arrays.asList(1,2,3);
+list3.set(2,9) - update 9 on index 2
