@@ -12,3 +12,6 @@ List<Integer> list2= new Arraylist<>();  - we can make that as list is parent cl
 only update the elements using set() method.
 List<Integer>list3 = Arrays.asList(1,2,3);
 list3.set(2,9) - update 9 on index 2
+
+8. comparator- custom logic ordering ,
+   comparable- natural ordering by implementing comparable interace.
